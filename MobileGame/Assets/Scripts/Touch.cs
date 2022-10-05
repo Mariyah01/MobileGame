@@ -59,11 +59,12 @@ public class Touch : MonoBehaviour
 
     private void SpawnBall()
     {
-        newBall = Instantiate(ballPrefab, slingShot.position, Quaternion.identity);
-        ballRB = newBall.GetComponent<Rigidbody2D>();
-        ballSpringJoint = newBall.GetComponent<SpringJoint2D>();
-        ballSpringJoint.connectedBody = slingShot.GetComponent<Rigidbody2D>();
-        //ballSpringJoint.distance = -1;
+
+            newBall = Instantiate(ballPrefab, slingShot.position, Quaternion.identity);
+            ballRB = newBall.GetComponent<Rigidbody2D>();
+            ballSpringJoint = newBall.GetComponent<SpringJoint2D>();
+            ballSpringJoint.connectedBody = slingShot.GetComponent<Rigidbody2D>();
+            ballSpringJoint.distance = -1;
     }
 
     private void UpdateBallPosition()
@@ -72,12 +73,13 @@ public class Touch : MonoBehaviour
         Vector2 screenTouchPosition = Input.GetTouch(0).position;
         Vector2 worldPosition = mainCamera.ScreenToWorldPoint(screenTouchPosition);
         newBall.transform.position = worldPosition;
+        //ballRB.MovePosition();
     }
 
     private void ReleaseFinger()
     {
         ballRB.bodyType = RigidbodyType2D.Dynamic;
-        newBall = null;
+        //newBall = null;
         Invoke("DelayRelease", releaseDelay);
         Invoke("SpawnBall", respawnTime);
         Destroy(newBall, despawnTime);

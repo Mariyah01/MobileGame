@@ -1169,6 +1169,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ballPrefab: {fileID: 373343674723293272, guid: 6e994093c47741741b09707388eb1402, type: 3}
   slingShot: {fileID: 1090416724}
-  despawnTime: 3
-  releaseDelay: 0
-  respawnTime: 0
+  despawnTime: 4
+  releaseDelay: 0.1
+  respawnTime: 4
